@@ -1,0 +1,5 @@
+_site
+_site/*
+.idea/
+.idea/*
+s3_website.yml
