@@ -7,7 +7,6 @@ video: false
 comments: true
 ---
 
-awd
 Recently, Amazon released a product called the [Echo](http://amazon.com/echo). While some might argue the
 
 Amazon Echo is just another Siri/Ok Google, I disagree.
