@@ -8,3 +8,8 @@ To build:
 To test:
  
     bundle exec jekyll serve
+
+
+To deploy:
+
+   s3_website push
