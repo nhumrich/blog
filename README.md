@@ -12,4 +12,4 @@ To test:
 
 To deploy:
 
-   s3_website push
+    s3_website push
