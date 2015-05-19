@@ -24,19 +24,28 @@ icon:		/assets/images/icon.png
 cover:		/assets/images/cover.jpg
 
 social:
+  # - icon: {icon name from FontAwesome (without the fa-)}
   - icon:	twitter
     url:	https://twitter.com/nhumrich
     desc:	Follow me on twitter
 
+  - icon:   stack-overflow
+    url:    http://stackoverflow.com/users/2434234/nick-humrich
+    desc:   View my StackOverflow profile
+    
   - icon:	github
     url:	https://github.com/nhumrich
     desc:	Fork me on github
 
+  - icon:   envelope
+    url:    mailto:nick@humrich.us
+    desc:   Send me an email
+  
   - icon:	linkedin
     url:	https://www.linkedin.com/in/nhumrich/
     desc:	View my profile on LinkedIn
-
-  - icon:	feed
+    
+  - icon:	rss
     url:	/atom.xml
     desc:	Subscribe to my feed
 
