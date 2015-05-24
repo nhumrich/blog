@@ -45,11 +45,11 @@ header, footer {
 }
 
 .menu-content {
-	width: 125px;
+	width: 165px;
 	top: 47px;
 	left: 12px;
 	padding-top: 5px;
-	padding-bottom: 2px;
+	padding-bottom: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
 	position: fixed;

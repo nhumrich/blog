@@ -85,11 +85,11 @@ img {
 }
 
 #post-info h2:before {
-	content: "“";
+	content: "";
 }
 
 #post-info h2:after {
-	content: "”";
+	content: "";
 }
 
 #post-info h3 {
@@ -363,6 +363,7 @@ pre code {
 .menu-content > .social-links-menu {
 	display: inline-block;
 	margin-left: 10px;
+    font-size: 24px;
 }
 
 .menu-content hr {
@@ -385,7 +386,7 @@ pre code {
 	         font-smoothing: antialiased;
 	
 	letter-spacing: 1.2pt;
-	font-size: 12px;
+	font-size: 18px;
 	font-weight: 600;
 	font-style: normal;
 	line-height: 35px;
@@ -399,12 +400,12 @@ pre code {
 
 .menu span {
 	color: #eee;
-	font-size: 16px;
-	height: 20px;
-	width: 20px;
+	font-size: 25px;
+	height: 30px;
+	width: 30px;
 	opacity: 1;
-	margin-left: 5px;
-	margin-top: 5px;
+	margin-left: 2px;
+	margin-top: 2px;
 }
 
 .menu + input {
@@ -421,7 +422,7 @@ pre code {
 
 .pagination {
 	position: relative;
-	margin-top: 30px;
+	margin-top: 30px
 	text-align: center;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
