@@ -10,6 +10,7 @@ comments: true
 Recently, Amazon released a product called the [Echo](http://amazon.com/echo). While some might argue the
 
 Amazon Echo is just another Siri/Ok Google, I disagree.
+
 ## So What is Echo?
 Echo is Artificial Intelligence (AI) that attempts to understand and learn human language. You can ask Echo questions in normal English, and it will attempt to give the answer back in normal English. This is a huge step forward from the typical computer experience. In the past, in order to talk to a computer, you needed to learn computer language. Now, the computer is learning our language. 
 
