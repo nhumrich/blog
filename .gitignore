@@ -3,3 +3,5 @@ _site/*
 .idea/
 .idea/*
 s3_website.yml
+vendor/
+.bundle/

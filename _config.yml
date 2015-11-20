@@ -6,6 +6,9 @@ permalink:	:year/:title
 # Setup
 baseurl:
 
+exclude:
+  - 'vendor'
+
 title:		Humrich
 tagline:	'Nicks blog'
 description:	'Blog for Nick Humrich'
