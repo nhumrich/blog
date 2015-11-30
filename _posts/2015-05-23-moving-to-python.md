@@ -74,7 +74,7 @@ public class HelloWorld {
 class HelloWorld():
     HELLO_GREETING = 'Hello'
     def say_hello(user_name):
-        print(HELLO_GREETING, user_name);
+        print(HELLO_GREETING, user_name)
         
 {% endhighlight %}
 
