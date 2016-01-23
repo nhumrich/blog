@@ -1,12 +1,16 @@
 ---
-
 layout: post
-title: Python Gems
-quote: A Few of my Favorite Things
+title: Packing Power
+quote: Tuples can be so much fun
 image: /media/python3d_edit.png
 video: false
 comments: true
+published: true
 ---
+
+
+
+TODO: fix the below to be more specific to tuples now that we have broken things out into smaller posts.
 
 Python has a lot of great things to love. Whenever I think about why I like python so much, these are some of the things thats stick out to me.
 These things can really speed up development time and make things easier to program. 
