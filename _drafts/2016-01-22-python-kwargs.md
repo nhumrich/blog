@@ -9,7 +9,7 @@ comments: true
 ---
 
 
-One of the biggest contraints on software engineering is a function signature. A signature is the name and arguments required of a function in order to call it. If a function is highly used in large code base, changing the signature can be a pain. Python can solve a lot of this pain with keyword arguments. Keyword arguments are basically optional arguments, that you specify based on keyname. 
+One of the biggest constraints on software engineering is a function signature. A signature is the name and arguments required of a function in order to call it. If a function is highly used in large code base, changing the signature can be a pain. Python can solve a lot of this pain with keyword arguments. Keyword arguments are basically optional arguments, that you specify based on keyname.
 
 ## Refactor magic
 
@@ -32,19 +32,19 @@ def greet_custom(name, greeting):
     print(greeting + name)
 ```
 
-This is better than changing the whole code base, but still pretty nasty; it's checking for None (null), *Yuck!* If we keep changing things, we could have lots of signatures for one real function. I have seen code bases in where this goes like 10 functions deep. 
-With the introduction of keyword arguments we can rewrite this to be much simpler. A keyword arg (commonly refered to as kwarg) can be written by giving the name of the variable and the default value as a key-value pair like such `argname=default`. Lets now refactor our example using kwargs.
+This is better than changing the whole code base, but still pretty nasty; it's checking for None (null), *Yuck!* If we keep changing things, we could have lots of signatures for one real function. I have seen code bases in where this goes like 10 functions deep.
+With the introduction of keyword arguments we can rewrite this to be much simpler. A keyword arg (commonly referred to as kwarg) can be written by giving the name of the variable and the default value as a key-value pair like such `argname=default`. Lets now refactor our example using kwargs.
 
 ```python
 def greet(name, greeting='Hello'):
     print(greeting + ' ' + name)
 ```
 
-Woa, check that out. We still have an awesome simple function and we dont even have to check for None. `greeting` is optional, so the function is completly backwards compatible. 
+Woa, check that out. We still have an awesome simple function and we dont even have to check for None. `greeting` is optional, so the function is completely backwards compatible.
 
 ## Format it
 
-In out previous example, we are concatanating strings. This is not really good practice in python because the objects might not be strings. How do we make the function work on more than just strings? We can use `format`. Python strings have a method called `format` that replaces all instances of `{}` with the arguments provided. 
+In out previous example, we are concatenating strings. This is not really good practice in python because the objects might not be strings. How do we make the function work on more than just strings? We can use `format`. Python strings have a method called `format` that replaces all instances of `{}` with the arguments provided.
 
 ```python
 print('This {} a format {} which prints a number: {}'.format('is', 'example', 5))
@@ -57,14 +57,14 @@ def greet(name, greeting='Hello'):
 	print('{} {}'.format(greeting, name)
 ```
 
-Looks pretty nice, and we got rid of the stupid `+ ' ' +` that always feels so dirty. You probably saw this coming but format can also take kwargs. You can put a indentifier name in format by placing it between the brackets. Lets rewrite our example to use keyword args.
+Looks pretty nice, and we got rid of the stupid `+ ' ' +` that always feels so dirty. You probably saw this coming but format can also take kwargs. You can put a identifier name in format by placing it between the brackets. Lets rewrite our example to use keyword args.
 
 ```python
 def greet(name, greeting='Hello'):
 	print('{hello} {world}'.format(hello=greeting, world=name)
 ```
 
-Ok this is a somewhat convoluted example for showing another example, but hey, now you have learned `format` and we are ready for some more cool examples. 
+Ok this is a somewhat convoluted example for showing another example, but hey, now you have learned `format` and we are ready for some more cool examples.
 
 ## Out of order
 
@@ -79,14 +79,14 @@ The main reason to do things out of order is mostly just so you dont have to wor
 
 ## Set it free
 
-Now we have one required argument, and one optional argument. We could also make both arguments optional. Keyword arguments have the ability to be called with either 
+Now we have one required argument, and one optional argument. We could also make both arguments optional. Keyword arguments have the ability to be called with either
 a keyword or not, just like non-optional can be called either way. For example, you could use our greeting string with format without the key-value pair syntax as long as order is maintained.
 
 ```python
 print('{hello} {world}'.format(greeting, name)
 ```
 
-You probably shouldn't do this, but you can if you wanted too. What this also means is that we can turn a required argument into an optional one. So now the `name` argument can be optional. 
+You probably shouldn't do this, but you can if you wanted too. What this also means is that we can turn a required argument into an optional one. So now the `name` argument can be optional.
 
 ```python
 def greet(name='World, greeting='Hello'):
@@ -111,6 +111,3 @@ greet('Joe', 'Howdy')
 greet(greeting='Howdy', name='Joe')
 # Howdy Joe
 ```
-
-
-
