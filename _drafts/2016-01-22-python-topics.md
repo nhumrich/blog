@@ -17,5 +17,6 @@ Here is a list of topics I can write posts on:
 - comprehenshions
 - Overloading Python Internals (__eq__ etc.)
 - imports
+- string formating
 
 
