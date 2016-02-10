@@ -16,4 +16,15 @@ Full description:
 
 ## Creating small Docker containers
 
+Talk about layering, alpine, how layering really works, gotchas of layering.
 
+## Introduction to rkt
+
+Talk about what rocket is and how to use it.
+
+## Moving to Microservices with docker
+
+Talk about how Canopy used docker to move us to microservices and the journey we took.
+- Started with all containers on everyones box
+- Created multiple integ envs
+- Created a "shadow prod" for services you didnt care about
