@@ -31,7 +31,7 @@ Multiple methods for minimizing containers will be mentioned.
   * building things from Alpine can reduce your container drastically
 * Other minimization techniques
   * layer squashing
-  * skinnywhatle
+  * skinnywhale
   * scratch image
 
 ## Introduction to rkt
