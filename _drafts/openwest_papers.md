@@ -36,7 +36,7 @@ Multiple methods for minimizing containers will be mentioned.
 
 ## Introduction to rkt
 
-No tagline yet.
+rkt, by CoreOs, is the first container system to be built from the Open Container Initiative. rkt attempts to compete with Docker for a more secure container environment. Come learn how to use rkt and how it compares to Docker.
 
 **Full Description:**
 
