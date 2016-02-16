@@ -57,17 +57,18 @@ Come watch as Nick explains the journey Canopy had to take to move from monolith
 **Full Description:**
 
 We will talk about how Canopy used Docker to move us to microservices and the journey we took. 
-1) Dockerize all the things
-1) Split up the repos
-1) Pipelining - Independent deploys
-1) Stabbed in the Backwards Compatilbility
-1) DevOps training began
-1) Add new services
-1) Not enough environments
-1) Docker-compose to the rescue
-1) Ok docker-compose is too much
-1) Shadow-prod
-1) Feature Toggles
+
+1. Dockerize all the things
+1. Split up the repos
+1. Pipelining - Independent deploys
+1. Stabbed in the Backwards Compatilbility
+1. DevOps training began
+1. Add new services
+1. Not enough environments
+1. Docker-compose to the rescue
+1. Ok docker-compose is too much
+1. Shadow-prod
+1. Feature Toggles
 
 -- notes for myself on moving to microservices --
 At first we tried to dockerize everything. This was intially just a container around the monolith. Then we had to split repositories into two, frontend, and backend, then create a container for each. Next, a deployment pipeline was created for each so that they could be deployed independently. Then we struggled with backwards compatibility and had to train everyone. Once things were working, we then added a new service in Java. We used docker-compose to allow everyone to run all the services in their development environment without needing to worry about the services they don't touch. As we added more and more services, this got out of hand, and there were too many services in the docker-compose files, and too many files to update if you wanted to change your service configuration. Docker didn't completely offer the "add it and forget about it" that we had hoped for. To fix this we created a "prod-like" environment, so that you could point your dev environment to a prod-like environment for the services you are not directly interacting with.
