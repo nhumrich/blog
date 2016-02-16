@@ -15,7 +15,7 @@ Full description:
 This is a begginers guide to docker aimed for developers. We will walk through an example of creating two applications, one in python and another in java. For each we will containerize the code using official docker containers. The two applications will then talk to eachother. Finally, docker-compose will be used to show how the two can talk to eachother in a development environment, as well as a production environment.
 
 
-## Creating small Docker containers
+## Less is more for Docker layers
 
 Is your docker honeymoon over? Have you realized how annoying it is to download hundreds of megabytes on small changes? Learn how docker layers work and how to minimize each layer in your container. Shrink a 300MB container to about 8MB
 
