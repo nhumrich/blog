@@ -61,7 +61,7 @@ We will talk about how Canopy used Docker to move us to microservices and the jo
 1. Dockerize all the things
 1. Split up the repos
 1. Pipelining - Independent deploys
-1. Stabbed in the Backwards Compatilbility
+1. Stabbed in the Backwards Compatibility
 1. DevOps training began
 1. Add new services
 1. Not enough environments
