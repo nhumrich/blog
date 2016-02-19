@@ -6,10 +6,11 @@ quote: functions made easy
 image: /media/python3d_edit.png
 video: false
 comments: true
+page: dark
 ---
 
 
-One of the biggest constraints on software engineering is a function signature. A signature is the name and arguments required of a function in order to call it. If a function is highly used in large code base, changing the signature can be a pain. Python can solve a lot of this pain with keyword arguments. Keyword arguments are basically optional arguments, that you specify based on keyname.
+One of the biggest contraints on software engineering is a function signature. A signature is the name and arguments required of a function in order to call it. If a function is highly used in large code base, changing the signature can be a pain. Python can solve a lot of this pain with keyword arguments. Keyword arguments are basically optional arguments, that you specify based on keyname.
 
 ## Refactor magic
 
@@ -33,18 +34,18 @@ def greet_custom(name, greeting):
 ```
 
 This is better than changing the whole code base, but still pretty nasty; it's checking for None (null), *Yuck!* If we keep changing things, we could have lots of signatures for one real function. I have seen code bases in where this goes like 10 functions deep.
-With the introduction of keyword arguments we can rewrite this to be much simpler. A keyword arg (commonly referred to as kwarg) can be written by giving the name of the variable and the default value as a key-value pair like such `argname=default`. Lets now refactor our example using kwargs.
+With the introduction of keyword arguments we can rewrite this to be much simpler. A keyword arg (commonly refered to as kwarg) can be written by giving the name of the variable and the default value as a key-value pair like such `argname=default`. Lets now refactor our example using kwargs.
 
 ```python
 def greet(name, greeting='Hello'):
     print(greeting + ' ' + name)
 ```
 
-Woa, check that out. We still have an awesome simple function and we dont even have to check for None. `greeting` is optional, so the function is completely backwards compatible.
+Woa, check that out. We still have an awesome simple function and we dont even have to check for None. `greeting` is optional, so the function is completly backwards compatible.
 
 ## Format it
 
-In out previous example, we are concatenating strings. This is not really good practice in python because the objects might not be strings. How do we make the function work on more than just strings? We can use `format`. Python strings have a method called `format` that replaces all instances of `{}` with the arguments provided.
+In out previous example, we are concatanating strings. This is not really good practice in python because the objects might not be strings. How do we make the function work on more than just strings? We can use `format`. Python strings have a method called `format` that replaces all instances of `{}` with the arguments provided.
 
 ```python
 print('This {} a format {} which prints a number: {}'.format('is', 'example', 5))
@@ -57,7 +58,7 @@ def greet(name, greeting='Hello'):
 	print('{} {}'.format(greeting, name)
 ```
 
-Looks pretty nice, and we got rid of the stupid `+ ' ' +` that always feels so dirty. You probably saw this coming but format can also take kwargs. You can put a identifier name in format by placing it between the brackets. Lets rewrite our example to use keyword args.
+Looks pretty nice, and we got rid of the stupid `+ ' ' +` that always feels so dirty. You probably saw this coming but format can also take kwargs. You can put a indentifier name in format by placing it between the brackets. Lets rewrite our example to use keyword args.
 
 ```python
 def greet(name, greeting='Hello'):

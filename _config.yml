@@ -1,8 +1,11 @@
 # Dependencies
-#markdown:	kramdown
-markdown:	redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+markdown: kramdown
+
+kramdown:
+  input: GFM
+# markdown:	redcarpet
+# redcarpet:
+#   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 # Permalinks
 permalink:	:year/:title
 
@@ -23,6 +26,7 @@ author:
   name:		'Nick Humrich'
   url:		https://blog.humrich.us
 
+gems: [jekyll-paginate]
 paginate:	5
 
 # Custom vars
@@ -38,7 +42,7 @@ social:
   - icon:   stack-overflow
     url:    http://stackoverflow.com/users/2434234/nick-humrich
     desc:   View my StackOverflow profile
-    
+
   - icon:	github
     url:	https://github.com/nhumrich
     desc:	Fork me on github
@@ -46,11 +50,11 @@ social:
   - icon:   envelope
     url:    mailto:nick@humrich.us
     desc:   Send me an email
-  
+
   - icon:	linkedin
     url:	https://www.linkedin.com/in/nhumrich/
     desc:	View my profile on LinkedIn
-    
+
   - icon:	rss
     url:	/atom.xml
     desc:	Subscribe to my feed
@@ -61,7 +65,7 @@ menu:
 
   - title:	About
     url:	/about
-    
+
 
 copyright:
   author:	Nick Humrich

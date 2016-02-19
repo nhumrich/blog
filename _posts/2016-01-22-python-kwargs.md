@@ -6,6 +6,8 @@ quote: functions made easy
 image: /media/python3d_edit.png
 video: false
 comments: true
+tags:
+  - python
 ---
 
 
@@ -90,7 +92,7 @@ print('{hello} {world}'.format(greeting, name)
 You probably shouldn't do this, but you can if you wanted too. What this also means is that we can turn a required argument into an optional one. So now the `name` argument can be optional.
 
 ```python
-def greet(name='World, greeting='Hello'):
+def greet(name='World', greeting='Hello'):
     print('{hello} {world}'.format(hello=greeting, world=name)
 ```
 
