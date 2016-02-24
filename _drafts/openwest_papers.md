@@ -4,7 +4,7 @@ Is Docker all the things it's hyped up to be? Have you been wondering what all t
 
 **Full Description:**
 
-This presentation will walk through a history of major devops changes such as Package Management, Configuration Managers (such as Chef), VMs, containers, and Docker. It will talk about how each one changed the game, and the downsides of them all. Learn why containers are so great from a devops point of view. We will talk about the problems containers aim to solve as well as why Docker was created and what it adds to the container world. We will also talk about rkt and the Open Container Initiative and what this means for the future.
+This presentation will walk through a history of major devops developments such as Package Management, Configuration Managers (such as Chef), VMs, containers, and Docker. It will talk about how each one changed the game, and the downsides of them all. Learn why containers are so great from a devops point of view. We will talk about the problems containers aim to solve as well as why Docker was created and what it adds to the container world. We will also talk about rkt and the Open Container Initiative and what this means for the future.
 
 ## It works fine for me!
 
@@ -26,7 +26,7 @@ Lastly, if time allows, other minimization techniques will be shown such as laye
 
 ## Introduction to rkt
 
-No tagline yet.
+No tagline yet. Are you going to submit it without a short description?
 
 **Full Description:**
 
