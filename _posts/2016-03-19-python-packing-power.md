@@ -1,7 +1,7 @@
 ---
 published: false
 layout: post
-title: Packing Power
+title: Python Packing Power
 quote: Tuples can be so much fun
 image: /media/python3d_edit.png
 video: false
@@ -11,16 +11,7 @@ tags:
 ---
 
 
-
-TODO: fix the below to be more specific to tuples now that we have broken things out into smaller posts.
-
-Python has a lot of great things to love. Whenever I think about why I like python so much, these are some of the things thats stick out to me.
-These things can really speed up development time and make things easier to program.
-
-## Tuple Tuple Tuple
-
-Not unique to python but still cool is the concept of a tuple. A tuple is kind of like a list, but a little easier to use.
-Lets say I wanted some type of list of objects usually because I want a pair of things. For example, I want to store an item price, and a name together.
+Not unique to python but still cool is the concept of a tuple. A tuple is basically a list that cant be modified. Tuples are also a tad bit easier to use ah hoc. Lets say I wanted some type of list of objects usually because I want a pair of things. For example, I want to store an item price, and a name together.
 Your first option is you could create an object, set the properties on the object, then store the object. But often objects are just too heavy for simple things.
 The next option is use a list. Typically with lists, you have to create a list first, then add the objects to it.
 
@@ -33,7 +24,7 @@ print(item)  # [50, 'sunglasses']
 print(item[0])  # 50
 ```
 
-Thats a lot of work for what supposed to be an easy solution. Python has also a tuple. A tuple is also an iterable, so it can be looped over like a list.
+Thats a lot of work for what supposed to be an easy solution. Python also has a tuple type. A tuple is also an iterable, so it can be looped over like a list.
 Tuples can be specified in line.
 
 ```python
@@ -43,14 +34,14 @@ print(item)  # (50, 'sunglasses')
 print(item[0])  # 50
 ```
 
-Really the only difference between a tuple and a list is the `()` instead of the `[]`. The power of tuples is that you can do them in one line, with any object.
+Really the only difference between a tuple and a list is the `()` instead of the `[]`, well, and the fact that tuples cant be modified once created. The power of tuples is that you can do them in one line, with any object.
 Where tuples get really cool is with automatic packing and unpacking.
+
 ## Pack your bags!
 
 Python has this cool little thing called "packing". This is where python automatically packs multiple objects into a Tuple.
 Python can pack, but it can also unpack, and it does this all automatically. Packing is usually used when you want to return multiple things.
-Since its not really possible for languages to return multiple things (due to how low level programming and call stacks work), python
-achieves this by "packing" the objects into a tuple.
+Since its not really possible for languages to return multiple things (due to how low level programming and call stacks work), python achieves this by "packing" the objects into a tuple.
 
 ```python
 def get_sunglasses():
@@ -75,7 +66,24 @@ print(item_name)  # 'sunglasses'
 Unpacking also works on any type of list/iterable. The only rule is that your number of variables has to either be 1, or match the number of items in the list exactly or you will get a "too many values to unpack" error message.
 
 
-## Generators
+## Signatures
+
+Another spot where packing/unpacking can be useful is for function signatures. For example, imagine that an add function takes two arguments, and you happen to have a tuple of arguments. Instead of unpacking the tuples yourself for the function, you can use the unpacking operator '*'. 
+
+```python
+mytuple = (1, 4)
+def add(x, y):
+    return x + y
+
+# Without unpacking
+add(mytuple[0], mytuple[1])
+
+# With unpacking operator
+add(*mytuple)
+```
+
+
+
 
 ## Comprendo?
 
