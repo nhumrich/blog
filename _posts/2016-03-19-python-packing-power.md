@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: Python Packing Power
 quote: Tuples can be so much fun
@@ -68,7 +68,7 @@ Unpacking also works on any type of list/iterable. The only rule is that your nu
 
 ## Signatures
 
-Another spot where packing/unpacking can be useful is for function signatures. For example, imagine that an add function takes two arguments, and you happen to have a tuple of arguments. Instead of unpacking the tuples yourself for the function, you can use the unpacking operator '*'. 
+Another spot where packing/unpacking can be useful is for function signatures. For example, imagine that an add function takes two arguments, and you happen to have a tuple of arguments. Instead of unpacking the tuples yourself for the function, you can use the unpacking operator `*`. 
 
 ```python
 mytuple = (1, 4)
@@ -82,9 +82,58 @@ add(mytuple[0], mytuple[1])
 add(*mytuple)
 ```
 
+You can also do things the other way around. Lets say you want to change add so that it adds up all the arguments, and takes an infinite amount of arguments. When the `*` is used in a function definition, it means to take in a number of arguments, and convert it to a list. For example, our add function would work like this:
+
+```python 
+def add(*args):
+    total = 0
+    for i in args:
+        total += i
+        
+# calling function normally
+add(1, 3, 5, 6, 7, 8, 14, 16, 20, 25)
+
+# Calling it by unpacking 
+numbers = (1, 3, 5, 6, 7, 8, 14, 16, 20, 25)
+add(*numbers)
+```
+
+This is how the print statement works in python3. You can pass in any number of arguments to the print statement and print will space seperate al arguments for you.
 
 
+## Dictionaries
 
-## Comprendo?
+You can also pack and unpack dictionaries by using two stars `**`. This can be useful when you want to programatically set the keyword args in a function call. For example:
 
-lll
+```python
+# The bad way
+if chalk:
+    paint('hello', chalk=chalk)
+else:
+    paint('hello')
+    
+# The better way
+kwargs = {}
+if chalk:
+    kwargs['chalk'] = chalk
+paint('hello', **kwargs)
+```
+
+Another great usecase for this is the `format` function for strings. There is a method in python called `locals()` that gives you a dictionary of all local variables. When using the `format` function on strings, you can just pass in this dictionary for the keyword arguments.
+
+```python
+name = 'bob'
+greeting = 'hello'
+print('{greeting} {name}'.format(**locals()))
+```
+
+And just as you can with lists, you can use packing for function definitions as well. For example, if we were going to write our own version of `format`, the keyword arguments would need to be dynamic, that is, we dont know what keys are needed, because they can be anything.
+
+```python
+def format(string,**kwargs):
+    for key, value in kwargs.items():
+        string.replace('{' + key + '}', value)
+
+format('hello {name} have a good {day}', name='bob', day='tuesday')
+```
+
