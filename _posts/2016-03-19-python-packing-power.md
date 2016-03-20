@@ -71,7 +71,7 @@ Unpacking also works on any type of list/iterable. The only rule is that your nu
 Another spot where packing/unpacking can be useful is for function signatures. For example, imagine that an add function takes two arguments, and you happen to have a tuple of arguments. Instead of unpacking the tuples yourself for the function, you can use the unpacking operator `*`. 
 
 ```python
-mytuple = (1, 4)
+my_tuple = (1, 4)
 def add(x, y):
     return x + y
 
@@ -98,24 +98,24 @@ numbers = (1, 3, 5, 6, 7, 8, 14, 16, 20, 25)
 add(*numbers)
 ```
 
-This is how the print statement works in python3. You can pass in any number of arguments to the print statement and print will space seperate al arguments for you.
+This is how the print statement works in python3. You can pass in any number of arguments and it will space seperate all arguments for you.
 
 
-## Dictionaries
+## Dont leave out the dictionaries
 
 You can also pack and unpack dictionaries by using two stars `**`. This can be useful when you want to programatically set the keyword args in a function call. For example:
 
 ```python
 # The bad way
-if chalk:
-    paint('hello', chalk=chalk)
+if color:
+    paint('hello', color=color)
 else:
     paint('hello')
     
 # The better way
 kwargs = {}
-if chalk:
-    kwargs['chalk'] = chalk
+if color:
+    kwargs['color'] = color
 paint('hello', **kwargs)
 ```
 
