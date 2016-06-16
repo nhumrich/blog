@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/nhumrich
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://blog.humrich.us
+  * I am nhumrich (https://keybase.io/nhumrich) on keybase.
+  * I have a public key with fingerprint 4C42 D559 7F23 4C48 FCFD  1679 BD42 6DC1 F6C3 7098
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101c691fefc9756c8af09bb81c26f3f0a829a2a42b1bcc5be3b9acd085e1445f9510a",
+            "fingerprint": "4c42d5597f234c48fcfd1679bd426dc1f6c37098",
+            "host": "keybase.io",
+            "key_id": "bd426dc1f6c37098",
+            "kid": "0101c691fefc9756c8af09bb81c26f3f0a829a2a42b1bcc5be3b9acd085e1445f9510a",
+            "uid": "433bb27f38b5f4f49ac15846f6f58b19",
+            "username": "nhumrich"
+        },
+        "service": {
+            "hostname": "blog.humrich.us",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1466093826,
+    "expire_in": 157680000,
+    "prev": "21f239234d9a205399a5951fd37fff28530b0c521a28070a7cb5687f361da05f",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.53
+Comment: https://keybase.io/crypto
+
+yMIoAnicrZJZSFRRHMZnTG2UNkyE9jr1EKR2t3OXaSESaypaJFMfpOmec88ZL9rc
+6c6SUhYjUZY0FEErWRHYPjURqERWYhgVRfQQBtlCkEFl0EQLGJ0r9tZj5+Vsv+87
+///H6Rk7ypXrrki2flmUkShzP7x7LOqqRE8ztgFkGQ3Auw3UkuGJ1BkkHPHXmgbw
+Ao7neCxrPCUUawqUsapTTkNI5bEgU5FyuipouqBLAuIRxhAREWk6NjgVEl6SINUg
+z+mgEFAzGCB2yDaDEWYrYUkwINQUKohsrVJMDV5WNGRIgmxgnspYVDhNZcIaK+wo
+WHFID5Ni02JnbOMfLu8f/H+uOzpsJ4kiQoJCRRVBKlGJoTxUJZnKFKqI1xwwTOyg
+vpkwOlgT3WybuAY0FgJ2GjMxcYJ1OhkhUJ0VKB6hiqNhJg/ZVsTCVh27rIlEQl5H
+G2kIOfBWgvwjNn5kBg2WJBPEiB02rSDw8ozEEdPx5SVZ5jRRFeRCQOpDpk38pkNA
+RVY5NpxnSIxZCjwLXmPZGywEDoqapkPWMTVEhVIqqFDkEIehwOuCyimcrmAEZZX1
+L/OGzkEKnMa2BC3ghaxMPcAsw2YgqEeiNgGN3XeqM13uXFd2Vobzw1y5ORP+/rsb
+c0b/Fp6n325PTP2sbuo+YR6/2dXx2b0r2XG/Oz5w/VTvuvqJXX1DrvjgucZBOzSl
+7V3ian6X/OR12PPohyfrVXuVL3/MmLwHdOPt6su1nb7qe2B/weNVkw6LOdMb1qbX
+pPp6UwPjvq689axsftnv5Iq59SC9u+lUZ3z5svzEet/7yadnt/1S8r5ng56C5pmt
+lWdeHZKSVXtmZaWHilrA2r2lsOTDgn2xkoupl5ceb/d5SvPPt2eM78aLm+cd6D/i
+39lSvvBAR9OFeGrJpx2pcmHlQObJ7BlL0/XVoYNvKnt7NkyLGp7b6s+uay/6V3v3
+5xYtOptYYRpHXZ0fr7infasoYinG/wCc5z46
+=mqSt
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/nhumrich
+
+==================================================================
