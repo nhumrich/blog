@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; font-size: 25px;}
+      .inverse {
+        background: #272822;
+        color: #D5D5D8;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+      .italic {
+        font-style: italic;
+      }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+        right: 3em;
+      }
+      .footnote2 {
+        position: absolute;
+        bottom:4.5em;
+        right: 3em;
+      }
+      .footnote3 {
+        position: absolute;
+        bottom:6em;
+        right: 3em;
+      }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      .remark-slide-content {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <textarea id="source">
+
+name: inverse
+layout: true
+class: inverse
+---
+name: inverse-center
+layout: true
+class: center, middle, inverse, title
+---
+name: title slide
+background-image: url(http://blog.humrich.us/media/python3d_edit.png)
+#A Few of My Favorite .italic[Python] Things
+ 
+and then I dont feel so bad
+
+
+
+.footnote3[Nick Humrich]
+.footnote2[Canopy - DevOps Guru]
+.footnote[OpenWest - 7/14/2016]
+
+???
+things to talk about
+- Kwargs
+- KW for Req args
+- Improve refactoring
+- default values
+- Tuples
+- automatic unpacking/packing and multiple return values
+- unpacking of args
+- Star operator
+- Duck Typing
+- Comprehensions
+- Monkey Patching
+- Python's Magic functions (internal functions, such as `__eq__`)
+
+---
+layout: false
+name: disclaimer
+
+# Disclaimer
+
+What im about to show you might be python3 only
+
+.footnote[Ok seriously what are you still doing using python2?
+
+Thats stuff is 8 years old now. 
+
+Thats as old as android! Back when netflix was only known for DVD's!]
+
+---
+name: zen
+
+# The Zen of Python
+
+`>>> import this`
+
+```markdown
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one 
+  --obvious way to do it.
+Although that way may not be obvious at 
+  first unless you're Dutch.
+ . . .
+```
+
+---
+
+name: zen-highlight
+
+# The Zen of Python
+
+`>>> import this`
+
+```markdown
+Beautiful is better than ugly.
+*Explicit is better than implicit.
+*Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+*Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+*There should be one-- and preferably only one 
+*  --obvious way to do it.
+Although that way may not be obvious at 
+  first unless you're Dutch.
+ . . .
+```
+
+???
+* Explicit is better than implicit
+* Readability counts.
+* There should be one-- and preferably only one --obvious way to do it.
+---
+
+# Python Basics
+
+--
+
+* dynamic typing .pull-right[\- simple is better than complex]
+
+--
+
+* strict typing  .pull-right[\- explicit is better than implicit]
+
+--
+
+* words instead of symbols .pull-right[\- readability counts]
+
+--
+
+* A language with a culture .pull-right[\- one way to do things]
+
+--
+
+* multi-paradigm
+
+
+---
+
+# Ok lets get started
+---
+
+# Keyword Args
+
+--
+```python
+def prettify(object, format, indent_size):
+  if format == null:
+    format = 'json'
+  if indent_size == null:
+    indent_size = 4
+  . . .
+```
+
+--
+- - -
+  
+```python
+def prettify(object, format='json', indent_size=4):  
+  . . .
+```
+
+---
+# Keyword Args
+
+```python
+def prettify(object, format='json', indent_size=4):  
+  . . .
+```
+
+--
+- - -
+```python
+>>> prettify(mydict)
+```
+--
+- - -
+
+```python
+>>> prettify(mydict, format='xml', indent_size=2)
+```
+--
+- - -
+
+```python
+>>> prettify(indent_size=2, object=mydict)
+```
+--
+
+---
+
+# Keyword Only Args
+
+```python
+def concat(string1, string2, sep=' ')
+  . . .
+```
+
+--
+- - -
+```python
+>>> concat('good', 'apple', 'pie')
+```
+--
+```python
+'goodpieapple'
+```
+---
+
+# Keyword Only Args
+
+```python
+def concat(string1, string2, *, sep=' '):
+  . . .
+```
+
+--
+- - -
+```python
+>>> concat('good', 'apple', 'pie')
+```
+--
+```markdown
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: concat() takes 2 positional arguments but 3 were given
+```
+
+---
+
+# Packing
+## (and unpacking)
+
+--
+
+```python
+def get_coordinates(shape):
+    return shape.x, shape.y
+```
+???
+Return multiple values, python will pack them automaticly
+--
+- - -
+```python
+>>> coordinates = get_coordinates(square)
+```
+--
+```python
+>>> cordinates
+(5, 7)
+```
+
+---
+
+# Packing
+## (and unpacking)
+```python
+def get_coordinates(shape):
+    return shape.x, shape.y
+```
+
+- - -
+```python
+>>> x, y = get_coordinates(square)
+```
+--
+```python
+>>> x
+5
+>>> y
+7
+```
+
+---
+
+# Packing
+## Star Operator
+
+--
+```python
+def get_coordinates(shape):
+    return shape.w, shape.x, shape.y, shape.z
+```
+--
+- - -
+```python
+>>> w, *_ = get_coordinates(square)
+```
+--
+- - -
+```python
+>>> *_, z = get_coordinates(square)
+```
+--
+- - -
+```python
+>>> w, *_, z = get_coordinates(square)
+```
+
+---
+# Star in functions signatures
+
+```python
+def myfunc(*args):
+    for arg in args:
+        print("Arg = {}".format(arg)
+```
+- - -
+```python
+def myfunc(*args, **kwargs):
+    for k,v in kwargs.items()
+       print('I can do keywords as well!'
+             ' k={} v={v}.format(k, v)')
+
+---
+# Star in function calls
+
+```python
+def print_search_results(name):
+    my_list = search(name)
+    print(my_list)
+```
+--
+- - -
+```python
+>>> print('string 1', 'string 2', 'string 3', ...)
+```
+--
+- - -
+```python
+def print_search_results(name):
+    my_list = search(name)
+    print(*my_list)
+```
+
+---
+
+# Comprehensions
+
+---
+
+# pep8/culture
+
+---
+
+# Interables
+
+## generators/lists are the same
+## convert to generator
+
+---
+
+# Monkey Patching
+
+## testing (mocking)
+## patching issues with downstream dependencies
+## modifying behavior of 3rd party tools
+---
+
+# help/dir (documentation discovery)
+
+---
+# Magic Functions
+
+---
+
+# Thanks
+
+
+    </textarea>
+    <script>
+      var slideshow = remark.create({
+        highlightStyle: 'monokai',
+        highlightLines: true,
+        countIncrementalSlides: false
+      });
+    </script>
+  </body>
+</html>
