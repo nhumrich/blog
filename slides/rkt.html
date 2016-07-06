@@ -70,13 +70,11 @@ class: inverse, center
 ---
 name: inverse-title
 layout: true
-class: inverse, title
+class: inverse, title, middle
 ---
 name: title slide
-background-image: url(https://si.wsj.net/public/resources/images/BN-DG809_0616lo_J_20140616141541.jpg)
-# Moving to Microservices
-##  With Docker
-
+background-image: url(rkt-logo.png)
+#  Intro to rkt
 
 
 .footnote3[Nick Humrich]
@@ -84,160 +82,155 @@ background-image: url(https://si.wsj.net/public/resources/images/BN-DG809_0616lo
 .footnote[OpenWest - 7/14/2016]
 
 ???
-We will talk about how Canopy used Docker to move us to microservices and the journey we took.
-
-- Dockerize all the things
-- Split up the repos
-- Pipelining - Independent deploys
-- Stabbed in the Backwards Compatibility
-- DevOps training began
-- Add new services
-- Not enough environments
-- Docker-compose to the rescue
-- Ok docker-compose is too much
-- Shadow-prod
-- Feature Toggles
-
-notes for myself on moving to microservices (aka not part of my submission)
-At first we tried to dockerize everything. 
-This was intially just a container around the monolith. 
-Then we had to split repositories into two, frontend, and backend, then create a container for each. 
-Next, a deployment pipeline was created for each so that they could be deployed independently. 
-Then we struggled with backwards compatibility and had to train everyone. 
-Once things were working, we then added a new service in Java. 
-We used docker-compose to allow everyone to run all the services in their development 
-environment without needing to worry about the services they don't touch. 
-As we added more and more services, this got out of hand, and there were too many services 
-in the docker-compose files, and too many files to update if you wanted to change 
-your service configuration. Docker didn't completely offer the "add it and forget about it" 
-that we had hoped for. To fix this we created a "prod-like" environment, 
-so that you could point your dev environment to a prod-like environment for 
-the services you are not directly interacting with. 
-Also, we had a single prod and stage environment, but that created a bottleneck 
-so we had to create multiple integration environments. 
-Lastly we moved away from feature branches to feature toggles 
-using a feature toggle service.
+An intro to rkt. Walk through how to build a container using rkt.
+* Running rkt containers
+* How to build your own
+* How to deploy
+* How to store
+* How to distribute
+* Running Docker containers from rkt
+* quay.io, a repository for rkt
+* rkt vs. Docker
 
 ---
-template: inverse-center
-name: disclaimer
-
-## Disclaimer
-# Mileage may vary*
-
-
-
-*This is just me talking about the journey Canopy had. 
-Hopefully you will learn some things that will help you. 
-
-
-
+name: inverse
+layout: true
+class: inverse
 ---
-name: canopy
+class: inverse
+name: rkt
 
-# Some info on Canopy
+# What is rkt?
 
-- First hire: Sept. 2014
-
-- 16 Software Engineers
-
-- 3 "squads"
-
-- 5 backend services
-
-- 4 frontend SPAs
-
-- Languages Used:
- - Java
- - JavaScript
- - PHP
- - Python
-
----
-name: me
-
-# What about me
+- Container runtime
+- CoreOS
+- Open Container Initiative
 
 ---
 
-# How we started
+background-image: url(rkt-supporting-companies.png)
 
 ???
-one php app with server side rendered php "blades". CEO wrote it
+these are suppoters of the OCI
 
 ---
 
-# Here comes Java
-
-Started work on other services using Java
-
----
-# Docker for local dev
-## (sorta)
+# who is coreos
 
 ???
-PHP app was dockerized. This helped frontend not need to understand php.
-Docker was on top of vagrant. Devs still had to know vagrant.
-Java land didnt use docker because java and php didnt ever communicate,
-all the java devs understood gradle/java
-
----
-# here is where I come in
-
-- PHP docker in vagrant
-- Deploying code in prod with composer install - Yikes!
-- Only 3 environments: 
- - stage
- - prod
- - local dev
---- 
-
-#First step, CI
-
-You really cant do microservices without a CI
-(ok to be fair, there was a CI, kinda)
-
-- Always building/testing
-- CI builds artifacts
-- Can only deploy from the CI
-
----
-# Having an internal app really helps
----
-
-# Dockerize all the things
+tektonic
 
 ---
 
-# Now do the split
+# Stuff
+- [appC](https://github.com/appc/spec/)  Container spec
+- [runC](https://github.com/opencontainers/runc)  container runtime
+- acbuild
+- ACI
+- Pods
+- ACE
+- Metadata service
 
 ---
 
-# Move to independent deploys
+# App Container Spec
 
-???
-At first this was technically challenging because we kept forgetting about backwards compatibility
-"Stabbed in the Backwards Compatibility"
-
-Whats really interesting is we found that once the 
-tech for this existed, we were still releasing everything
-"all at once", cause that is what we were used too.
-
-- part of this couldnt be aleviated without feature toggles
+An App Container Image (ACI) contains all files and metadata needed to execute a given app. 
+In some ways an ACI can be thought of as equivalent to a static binary.
 
 ---
 
-#Training was inevetible
+# Building a simple go app
 
 ---
 
-# Docker-compose to the rescue
+# Something more complicated
+
+python
+
+```bash
+#!/usr/bin/env bash -e
+acbuild --debug begin
+
+acbuild --debug set-name python-base
+acbuild --debug label add language python
+acbuild --debug dep add quay.io/coreos/alpine-sh
+
+acbuild --debug run apk update
+acbuild --debug run apk add python3
+acbuild --debug run python3 -- --version
+
+acbuild --debug set-exec -- /usr/bin/python3
+
+acbuild --debug write --overwrite python-base.aci
+acbuild end
+```
+
+---
+
+Show builing with just rocket
+acbuild deb
+
+can NOT use docker image as depenedency
+
+
+??? 
+see rkt-demo directory
+
+---
+
+# running
+
+you have to add --dns 8.8.8.8 if you want to use url's at all
+
+---
+
+# machinectl
+
+machinectl list
+machinectl kill
+
+---
+
+# systemd integration
+
+---
+
+# demo other commands with rkt cmd line
+
+note that rkt list shows ALL containers ever
+
+rkt images list
+shows all images, even if the "name" has been overwriten
+
+rkt gc is cool
+---
+
+# stages
+
+---
+
+# Creating a repo for rkt images
+
+
+---
+
+# or just use quay.io
+
+---
+
+# deploying
+
+use kubernetes or raw coreos
+
+---
+
+# rkt vs docker
 
 ---
 
 
 ---
-
 # Thanks
 
 

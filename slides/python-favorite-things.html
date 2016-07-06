@@ -55,7 +55,29 @@
       .remark-slide-content {
         background-position: center;
         background-repeat: no-repeat;
+        background-size: contain;
+      }
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+        .left-column h2:last-of-type, .left-column h3:last-child {
+          color: #000;
+        }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+      /* specific slide formatting */
+      #slide-title {
         background-size: cover;
+      }
+      #slide-companies img {
+        height: 160px;
       }
     </style>
   </head>
@@ -72,7 +94,7 @@ name: inverse-center
 layout: true
 class: center, middle, inverse, title
 ---
-name: title slide
+name: title
 background-image: url(http://blog.humrich.us/media/python3d_edit.png)
 #A Few of My Favorite .italic[Python] Things
  
@@ -85,33 +107,109 @@ and then I dont feel so bad
 .footnote[OpenWest - 7/14/2016]
 
 ???
-things to talk about
-- Kwargs
-- KW for Req args
-- Improve refactoring
-- default values
-- Tuples
-- automatic unpacking/packing and multiple return values
-- unpacking of args
-- Star operator
-- Duck Typing
-- Comprehensions
-- Monkey Patching
-- Python's Magic functions (internal functions, such as `__eq__`)
+welcome
 
 ---
 layout: false
-name: disclaimer
+name: me
+background-image: url(its-all-about-me.gif)
 
+???
+you might need some background on me for this to make sense
+people with a different background might think these things are obvious
+or maybe even stupid
+---
+
+background-image: url(apple-kid-still.gif)
+
+???
+As a Kid I learned basic, got into computers etc
+
+---
+background-image: url(apple-kid.gif)
+
+---
+
+background-image: url(unc.jpg)
+
+???
+I went to UNC without a major. They didnt have a CS major, but they
+had a cs minor sponsored by the math department
+
+I couldnt get into CS 101 my first semester so
+I took both CS 101 and 102 at the same time the second semester
+one was in python and the other was in c++
+
+I learned all the concept in c++, so I picked it as a more "elite" language
+
+---
+name: byu
+background-image: url(byu.gif)
+
+???
+went to byu
+learned c++ then java
+
+took courses where I learned c# and lisp and python
+
+Java was my primary language
+
+I always envied the python pros cause they always won the
+code challenge
+---
+name: companies
+
+
+![image](qualtrics.png)
+![image](blue-coat.jpg)
+![image](family-search.jpg)
+
+???
+worked at these companies doing java/javascript at all of them
+---
+
+![image](awslogo.png)
+.pull-right[![image](elastic-beanstalk.png)]
+
+
+???
+finally got to use python professionally
+also used javascript
+learned a little about every language elastic beanstalk supports
+---
+
+background-image: url(canopy.png)
+
+???
+now I work at canopy focusing on building dev tools
+Use python/node/go
+I have the choice to use any language I want
+I choose python
+---
+
+layout: false
+name: disclaimer
+background-image: url(tyson.jpg)
 # Disclaimer
 
-What im about to show you might be python3 only
+--
 
-.footnote[Ok seriously what are you still doing using python2?
+###python3 only
+
+
+???
+
+Ok seriously what are you still doing using python2
 
 Thats stuff is 8 years old now. 
 
 Thats as old as android! Back when netflix was only known for DVD's!]
+
+
+---
+template: inverse-center
+
+# Python Fundementals
 
 ---
 name: zen
@@ -140,6 +238,10 @@ Although that way may not be obvious at
  . . .
 ```
 
+???
+this is what you get when you type
+import this into python
+
 ---
 
 name: zen-highlight
@@ -166,6 +268,7 @@ In the face of ambiguity, refuse the temptation to guess.
 Although that way may not be obvious at 
   first unless you're Dutch.
  . . .
+
 ```
 
 ???
@@ -173,47 +276,117 @@ Although that way may not be obvious at
 * Readability counts.
 * There should be one-- and preferably only one --obvious way to do it.
 ---
+.left-column[
+  ## Python Basics
+  ### - Simple
+]
 
-# Python Basics
+.right-columng[
 
---
+##  Simple is Better than Complex
 
-* dynamic typing .pull-right[\- simple is better than complex]
+### Dynamic Typing 
 
---
-
-* strict typing  .pull-right[\- explicit is better than implicit]
-
---
-
-* words instead of symbols .pull-right[\- readability counts]
-
---
-
-* A language with a culture .pull-right[\- one way to do things]
-
---
-
-* multi-paradigm
-
-
+```python
+print('a string')
+print(1)
+print(['a','list'])
+print(Exception('error'))
+```
+]
 ---
 
-# Ok lets get started
+.left-column[
+  ## Python Basics
+  ### - Simple
+  ### - Explicit
+]
+
+.right-column[
+## Explicit is Better than Implicit
+### Strict typing  
+
+python
+```python
+>>> 4 + '4'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand 
+  type(s) for +: 'int' and 'str'
+```
+]
+--
+.right-column[
+javascript
+```javascript
+> 4 + '4'
+'44'
+```
+]
+---
+
+.left-column[
+  ## Python Basics
+  ### - Simple
+  ### - Explicit
+  ### - Readability
+]
+
+.right-column[
+
+## Readability Counts
+### Words instead of symbols 
+
+```python
+if a and b or c:
+  do()
+```
+]
+
+???
+Code is read more than its written
+---
+
+.left-column[
+  ## Python Basics
+  ### - Simple
+  ### - Explicit
+  ### - Readability
+  ### - One Way
+]
+
+.right-column[
+## One Way to Do Things
+### Language with a culture
+
+* ###pep8
+* ###"pythonic"
+* ###Use libraries
+* ###humor
+]
+---
+template: inverse-center
+# Now onto my favorite things
 ---
 
 # Keyword Args
 
+???
+keyword argements are function parameters where you specify by name in a key-value pair
+
 --
 ```python
 def prettify(object, format, indent_size):
-  if format == null:
+  if format is None:
     format = 'json'
-  if indent_size == null:
+  if indent_size is None:
     indent_size = 4
   . . .
 ```
-
+???
+example
+this is a normal function
+no kw args
 --
 - - -
   
@@ -222,6 +395,11 @@ def prettify(object, format='json', indent_size=4):
   . . .
 ```
 
+???
+this is what it looks like if we add the last two args as kw args
+
+These two examples are exactly the same
+
 ---
 # Keyword Args
 
@@ -230,24 +408,37 @@ def prettify(object, format='json', indent_size=4):
   . . .
 ```
 
+???
+this is what we had
+
 --
 - - -
 ```python
 >>> prettify(mydict)
 ```
+
+???
+and this is how we call it normally
 --
 - - -
 
 ```python
->>> prettify(mydict, format='xml', indent_size=2)
+>>> prettify(mydict, format='yaml', indent_size=2)
 ```
+
+???
+this is how we call it with the keywords. Youll notice the kw args are now optional
+
 --
 - - -
 
 ```python
 >>> prettify(indent_size=2, object=mydict)
 ```
---
+
+???
+we can call args out of order, we can even use keywords for args that are not explicitly
+keyword args
 
 ---
 
@@ -258,11 +449,20 @@ def concat(string1, string2, sep=' ')
   . . .
 ```
 
+???
+same as kw args but you HAVE to pass it in as a key-value pair
+
+lets take this example and not pass is as key value pair
 --
 - - -
 ```python
 >>> concat('good', 'apple', 'pie')
 ```
+
+???
+maybe I see your function and dont understand it right.
+maybe you just want to make it easier for yourself to refactor later
+
 --
 ```python
 'goodpieapple'
@@ -275,6 +475,9 @@ def concat(string1, string2, sep=' ')
 def concat(string1, string2, *, sep=' '):
   . . .
 ```
+
+???
+you can fix that by using a *
 
 --
 - - -
@@ -293,6 +496,8 @@ TypeError: concat() takes 2 positional arguments but 3 were given
 # Packing
 ## (and unpacking)
 
+???
+packing is the concept where python packs multiple objects into a tuple
 --
 
 ```python
@@ -333,6 +538,10 @@ def get_coordinates(shape):
 7
 ```
 
+???
+This is unpacking!!!
+
+Instead of putting things together (like in the return) it pulls them apart
 ---
 
 # Packing
@@ -358,6 +567,14 @@ def get_coordinates(shape):
 ```python
 >>> w, *_, z = get_coordinates(square)
 ```
+---
+# Packing
+## Star Operator
+
+TODO: MAKE THESE NICE
+```python
+a = [*list1, 'b', *list2]
+```
 
 ---
 # Star in functions signatures
@@ -365,39 +582,76 @@ def get_coordinates(shape):
 ```python
 def myfunc(*args):
     for arg in args:
-        print("Arg = {}".format(arg)
+        print("Arg = {}".format(arg))
 ```
+???
+* unlimited arguments
+* turns all args into list
+--
 - - -
 ```python
 def myfunc(*args, **kwargs):
-    for k,v in kwargs.items()
+    for k, v in kwargs.items():
        print('I can do keywords as well!'
-             ' k={} v={v}.format(k, v)')
-
+             ' k={} v={}'.format(k, v))
+```
 ---
 # Star in function calls
 
 ```python
-def print_search_results(name):
-    my_list = search(name)
-    print(my_list)
+>>> print('string 1', 'string 2', sep='\n')
+string 1
+string 2
 ```
 --
 - - -
 ```python
->>> print('string 1', 'string 2', 'string 3', ...)
+>>> my_list = [1,2,3,4]
+>>> print(my_list, sep='\n')
+[1, 2, 3, 4]
 ```
 --
 - - -
 ```python
-def print_search_results(name):
-    my_list = search(name)
-    print(*my_list)
+>>> print(*my_list, sep='\n')
+1
+2
+3
+4
 ```
+---
+# For loop syntax
+```python
+for item in my_list:
+    print(item)
+```
+???
+no more tracking indexes
+---
+# For loop  syntax
+## with packing
 
+```python
+for key, value in my_dict.items():
+    print('Key: {}, Value: {}'.format(k, v))
+```    
 ---
 
 # Comprehensions
+
+--
+```python
+new_list = list()
+for p in people:
+    if p['age'] > 18:
+        new_list.append(p['name'])
+print(*new_list)
+```
+--
+- - -
+```python
+print(*[p['name'] for p in people if p['age'] > 18])
+```
 
 ---
 
@@ -423,6 +677,15 @@ def print_search_results(name):
 
 ---
 # Magic Functions
+
+
+---
+# with (context managers)
+
+
+---
+# async await
+
 
 ---
 
