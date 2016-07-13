@@ -4,9 +4,9 @@
     <title>Title</title>
     <meta charset="utf-8">
     <style>
-      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      @import url(images/https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(images/https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(images/https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
       body { font-family: 'Droid Serif'; }
       h1, h2, h3 {
@@ -90,12 +90,16 @@ name: inverse
 layout: true
 class: inverse
 ---
+name: section
+layout: true
+class: inverse, middle
+---
 name: inverse-center
 layout: true
 class: center, middle, inverse, title
 ---
 name: title
-background-image: url(http://blog.humrich.us/media/python3d_edit.png)
+background-image: url(images/python3d_edit.png)
 #A Few of My Favorite .italic[Python] Things
  
 and then I dont feel so bad
@@ -112,7 +116,7 @@ welcome
 ---
 layout: false
 name: me
-background-image: url(its-all-about-me.gif)
+background-image: url(images/its-all-about-me.gif)
 
 ???
 you might need some background on me for this to make sense
@@ -120,17 +124,17 @@ people with a different background might think these things are obvious
 or maybe even stupid
 ---
 
-background-image: url(apple-kid-still.gif)
+background-image: url(images/apple-kid-still.gif)
 
 ???
 As a Kid I learned basic, got into computers etc
 
 ---
-background-image: url(apple-kid.gif)
+background-image: url(images/apple-kid.gif)
 
 ---
 
-background-image: url(unc.jpg)
+background-image: url(images/unc.jpg)
 
 ???
 I went to UNC without a major. They didnt have a CS major, but they
@@ -144,7 +148,7 @@ I learned all the concept in c++, so I picked it as a more "elite" language
 
 ---
 name: byu
-background-image: url(byu.gif)
+background-image: url(images/byu.gif)
 
 ???
 went to byu
@@ -160,16 +164,16 @@ code challenge
 name: companies
 
 
-![image](qualtrics.png)
-![image](blue-coat.jpg)
-![image](family-search.jpg)
+![image](images/qualtrics.png)
+![image](images/blue-coat.jpg)
+![image](images/family-search.jpg)
 
 ???
 worked at these companies doing java/javascript at all of them
 ---
 
-![image](awslogo.png)
-.pull-right[![image](elastic-beanstalk.png)]
+![image](images/awslogo.png)
+.pull-right[![image](images/elastic-beanstalk.png)]
 
 
 ???
@@ -178,7 +182,7 @@ also used javascript
 learned a little about every language elastic beanstalk supports
 ---
 
-background-image: url(canopy.png)
+background-image: url(images/canopy.png)
 
 ???
 now I work at canopy focusing on building dev tools
@@ -189,7 +193,7 @@ I choose python
 
 layout: false
 name: disclaimer
-background-image: url(tyson.jpg)
+background-image: url(images/tyson.jpg)
 # Disclaimer
 
 --
@@ -293,6 +297,11 @@ print(1)
 print(['a','list'])
 print(Exception('error'))
 ```
+```python
+foo = 1
+bar = 'bbb'
+print(foo, bar)
+```
 ]
 ---
 
@@ -368,13 +377,15 @@ Code is read more than its written
 template: inverse-center
 # Now onto my favorite things
 ---
-
-# Keyword Args
+template: section
+# Keyword Arguments
 
 ???
 keyword argements are function parameters where you specify by name in a key-value pair
 
---
+---
+# Keyword args
+
 ```python
 def prettify(object, format, indent_size):
   if format is None:
@@ -492,13 +503,15 @@ TypeError: concat() takes 2 positional arguments but 3 were given
 ```
 
 ---
-
+template: section
 # Packing
 ## (and unpacking)
 
 ???
 packing is the concept where python packs multiple objects into a tuple
---
+---
+
+#Packing
 
 ```python
 def get_coordinates(shape):
@@ -571,9 +584,16 @@ def get_coordinates(shape):
 # Packing
 ## Star Operator
 
-TODO: MAKE THESE NICE
 ```python
-a = [*list1, 'b', *list2]
+mylist = [*list1, 'b', *list2]
+```
+--
+```python
+myset = {*list1, 'b', *list2}
+--
+- - -
+```python
+mydict = {**dict1, 'a': 1234, **dict2}
 ```
 
 ---
@@ -595,6 +615,30 @@ def myfunc(*args, **kwargs):
        print('I can do keywords as well!'
              ' k={} v={}'.format(k, v))
 ```
+---
+# Star in functions signatures
+
+```python
+def log(string, log_prefix='log: '):
+    print(log_prefix, string)
+```
+--
+- - -
+```python
+def log_blue(string, log_prefix='log: '):
+    log('\033[0;34m' + string, log_prefix)
+```
+
+???
+now I realise there is a bug in this, 
+I have to update in two places
+--
+- - -
+```python
+def log_blue(string, **kwargs):
+    log('\033[0;34m' + string, **kwargs)
+```
+
 ---
 # Star in function calls
 
@@ -627,8 +671,8 @@ for item in my_list:
 ```
 ???
 no more tracking indexes
----
-# For loop  syntax
+--
+
 ## with packing
 
 ```python
@@ -636,60 +680,399 @@ for key, value in my_dict.items():
     print('Key: {}, Value: {}'.format(k, v))
 ```    
 ---
-
+template: section
 # Comprehensions
 
---
+---
+# Comprehensions
+
 ```python
-new_list = list()
+names = list()
 for p in people:
     if p['age'] > 18:
-        new_list.append(p['name'])
-print(*new_list)
+        names.append(p['name'])
 ```
 --
 - - -
 ```python
-print(*[p['name'] for p in people if p['age'] > 18])
+names = [p['name'] for p in people if p['age'] > 18]
 ```
 
 ---
-
+template: section
 # pep8/culture
 
+###pep8.org
 ---
+# Culture
 
-# Interables
+```python
+class MyClass:
+    def _protected_method():
+        pass
+    def __private_method():
+        # this method's name gets mangled
+        pass
+```
+---
+template: section
+# Iterables
 
-## generators/lists are the same
-## convert to generator
+---
+# Iterables
+
+generator
+```python
+def names_gen():
+    for p in people:
+        yield p['name']
+```
+--
+- - -
+list
+```python
+def names_list():
+    return [p['name'] for p in people]
+```
+--
+- - -
+```python
+for n in names_X():
+    print(n)
+```
+???
+might need to explain what a generator is
+---
+# convert to generator
+
+```python
+def get_adults():
+    new_list()
+    for p in person
+```
+
+```python
+def get_adults():
+    for p in people:
+        if p['age'] > 18:
+            yield p
+```
+???
+If people is also a generator then you only have one full loop
+as you are processing the loop only one time
+
+Often people try to rewrite lists so they only have to iterate once,
+generators are an easy way to do this.
+--
+- - -
+```python
+def get_all_adults()
+    yield from get_adults()
+    yield from some_list()
+```
+---
+template: section
+# Monkey Patching
+
+.center[![image](images/monkey-patch.png)]
 
 ---
 
 # Monkey Patching
-
 ## testing (mocking)
-## patching issues with downstream dependencies
-## modifying behavior of 3rd party tools
----
 
+```python
+def greet():
+    name = input('Enter your name: ')
+    print('Hello', name)
+```
+--
+- - -
+```python
+def greet(_input=input):
+    name = _input('Enter your name: ')
+    print('Hello', name)
+```
+---
+code
+```python
+def greet(_input=input):
+    name = _input('Enter your name: ')
+    print('Hello', name)
+```
+test
+```python
+import greeter
+
+def my_input():
+    return 'bob'
+
+def test_greet():
+    assert 'bob' == greeter.greet(_input=my_input)
+```
+--
+- - -
+```python
+def greet(_input=input, _print=print):
+    ...
+```
+---
+code (greeter.py)
+```python
+def greet():
+    name = input('Enter your name: ')
+    print('Hello', name)
+```
+test
+```python
+import greeter
+def my_input(prompt):
+    return 'bob'
+
+def my_print(*args):
+    global print_args
+    print_args = args
+
+greeter.input = my_input
+greeter.print = my_print
+
+def test_greet():
+    greeter.greet()
+    assert print_args == ('Hello', 'bob')
+```
+---
+code (greeter.py)
+```python
+def greet():
+    name = input('Enter your name: ')
+    print('Hello', name)
+```
+test
+```python
+import greeter
+def my_input(prompt):
+    return 'bob'
+
+def my_print(*args):
+    global print_args
+    print_args = args
+
+*greeter.input = my_input
+*greeter.print = my_print
+
+def test_greet():
+    greeter.greet()
+    assert print_args == ('Hello', 'bob')
+```
+---
+## patching libraries
+```python
+from foobar_api import Client
+
+foobar = Client(id='1234', secret='abcd')
+
+user = foobar.get_user('myusername')
+
+print(user.metadata)
+```
+--
+- - -
+```python
+AttributeError: 'User' object has no attribute 'metadata'
+```
+---
+## patching libraries
+foobar_api.User
+```python
+def map_attributes(self, json):
+    self.username = json['username']
+    self.foobars = json['foobars']
+```
+--
+- - -
+```python
+def my_map_attributes(self, json):
+    self.username = json['username']
+    self.foobars = json['foobars']
+    self.metadata = json['metadata']
+
+foobar_api.User.map_attributes = my_map_attributes     
+```
+---
+## patching libraries
+foobar_api.User
+```python
+def map_attributes(self, json):
+    self.username = json['username']
+    self.foobars = json['foobars']
+```
+- - -
+```python
+def my_map_attributes(self, json):
+    self.username = json['username']
+    self.foobars = json['foobars']
+    self.metadata = json['metadata']
+
+*foobar_api.User.map_attributes = my_map_attributes     
+```
+--
+- - -
+```python
+print(user.metadata)
+```
+---
+template: section
 # help/dir (documentation discovery)
 
----
-# Magic Functions
 
+There are 3 types of documentation: 
 
----
-# with (context managers)
-
-
----
-# async await
-
+The kind that...
+1. You Don't have
+2. Is out of date
+3. Will be out of date tomorrow
+There is no 4th type
 
 ---
+# Help
 
+```python
+class Person:
+    def do_stuff(self):
+        """
+        This method does fancy things
+        """
+        pass
+    
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+```
+---
+
+# Help
+
+```python
+help(Person)
+```
+- - -
+
+```markdown
+Help on class Person in module __main__:
+
+class Person(builtins.object)
+ |  Methods defined here:
+ |  
+ |  __init__(self, name, age)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  do_stuff(self)
+ |      This method does fancy things
+ ```
+
+---
+# Dir
+
+```python
+dir(Person('bob', 17))
+```
+- - -
+```python
+['__class__', '__delattr__', '__dict__', 
+'__dir__', '__doc__', '__eq__', 
+'__format__', '__ge__', '__getattribute__', 
+'__gt__', '__hash__', '__init__', '__le__',
+ '__lt__', '__module__', '__ne__', '__new__', 
+ '__reduce__', '__reduce_ex__', '__repr__', 
+ '__setattr__', '__sizeof__', '__str__', 
+ '__subclasshook__', '__weakref__', 'age', 
+ 'do_stuff', 'name']
+```
+---
+template: section
+# **with**
+## (context managers)
+
+---
+
+```python
+try:
+    connection = database.connect()
+    try:
+        transaction = connection.begin()
+        transaction.query(my_query_string)
+        transaction.commit()
+    except TransactionError as e:
+        log(e)
+        if transaction:
+            transaction.rollback()
+    finally:
+        transaction.close()
+except DatabaseError as e:
+    log(e)
+finally:
+    connection.close()
+```
+--
+- - -
+```python
+with database.connect() as connection, \
+         connection.begin() as transaction:
+     transaction.query(my_query_string)
+```
+
+---
+template: section
+# batteries included
+
+---
+# Batteries Included
+```python
+index[1]
+reverse_index[-1]
+
+subset[1:2]
+subset[3:]
+subset[:-3]
+
+slice[1:10:3]
+slice[::2]
+reverse[::-1]
+```
+---
+# Batteries included
+
+
+```python
+# Leftpad
+string.rjust(10)
+
+#stripping
+string.strip()
+string.strip('#')
+
+#regex
+import re
+regex_string = r'some\sreg[e]x(\d)+'
+
+
+#json
+import json
+dict = json.loads(string)
+string = json.dumps(dict)
+```
+
+---
+template: section
 # Thanks
+
+.pull-right[
+\#openwest
+
+@nhumrich
+
+joind.in/talk/547f
+]
 
 
     </textarea>

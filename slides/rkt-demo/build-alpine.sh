@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -e
+#!/bin/bash -e
 acbuild --debug begin
 
 acbuild --debug set-name python-base

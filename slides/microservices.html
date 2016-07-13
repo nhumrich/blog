@@ -68,12 +68,16 @@ name: inverse-center
 layout: true
 class: inverse, center
 ---
+name: top
+layout: true
+class: inverse
+---
 name: inverse-title
 layout: true
 class: inverse, title
 ---
 name: title slide
-background-image: url(https://si.wsj.net/public/resources/images/BN-DG809_0616lo_J_20140616141541.jpg)
+background-image: url(images/docker-whale.jpg)
 # Moving to Microservices
 ##  With Docker
 
@@ -81,7 +85,7 @@ background-image: url(https://si.wsj.net/public/resources/images/BN-DG809_0616lo
 
 .footnote3[Nick Humrich]
 .footnote2[Canopy - DevOps Guru]
-.footnote[OpenWest - 7/14/2016]
+.footnote[OpenWest - 7/15/2016]
 
 ???
 We will talk about how Canopy used Docker to move us to microservices and the journey we took.
@@ -101,7 +105,8 @@ We will talk about how Canopy used Docker to move us to microservices and the jo
 notes for myself on moving to microservices (aka not part of my submission)
 At first we tried to dockerize everything. 
 This was intially just a container around the monolith. 
-Then we had to split repositories into two, frontend, and backend, then create a container for each. 
+Then we had to split repositories into two, 
+frontend, and backend, then create a container for each. 
 Next, a deployment pipeline was created for each so that they could be deployed independently. 
 Then we struggled with backwards compatibility and had to train everyone. 
 Once things were working, we then added a new service in Java. 
@@ -122,7 +127,21 @@ using a feature toggle service.
 template: inverse-center
 name: disclaimer
 
+# What are Microservices?
+
+???
+* m11 is a subset of SOA
+* not the only form of soa
+* created by google/amazon
+* each context is its own full service
+* dont get carried away by the term "micro"
+  * the word was coined in LARGE companies
+  * Micro does not imply size of code base
+
+---
 ## Disclaimer
+
+![](images/disclaimer.gif)
 # Mileage may vary*
 
 
@@ -130,16 +149,22 @@ name: disclaimer
 *This is just me talking about the journey Canopy had. 
 Hopefully you will learn some things that will help you. 
 
-
+???
+* We are not there yet
+* this is our journey
 
 ---
+layout: true
+class: inverse, middle
+---
+
 name: canopy
 
 # Some info on Canopy
 
 - First hire: Sept. 2014
 
-- 16 Software Engineers
+- 14 Software Engineers
 
 - 3 "squads"
 
@@ -158,6 +183,10 @@ name: me
 
 # What about me
 
+???
+* worked at amazon
+* what I do at canopy
+
 ---
 
 # How we started
@@ -169,6 +198,7 @@ one php app with server side rendered php "blades". CEO wrote it
 
 # Here comes Java
 
+???
 Started work on other services using Java
 
 ---
@@ -182,17 +212,56 @@ Java land didnt use docker because java and php didnt ever communicate,
 all the java devs understood gradle/java
 
 ---
-# here is where I come in
+# Here is where I come in
 
+???
 - PHP docker in vagrant
 - Deploying code in prod with composer install - Yikes!
 - Only 3 environments: 
  - stage
  - prod
  - local dev
---- 
+
+---
+template: top
+# Why Microservices?
+--
+## 
+* ## Fail Fast, Fail Often
+--
+
+* ## Independent deployment
+--
+
+* ## Autonomy
+--
+
+* ## Orgazational Scalability
+
+---
+template: top
+# Cons of Microservices
+--
+
+* ## Performance
+
+--
+* ## Duplication
+
+--
+* ## Dependency Management
+---
+background-image: url(images/netflix.png)
+
+---
+# Our Story
+
+---
 
 #First step, CI
+
+???
+Using drone
 
 You really cant do microservices without a CI
 (ok to be fair, there was a CI, kinda)
@@ -208,6 +277,15 @@ You really cant do microservices without a CI
 # Dockerize all the things
 
 ---
+# Docker in Prod
+
+???
+Using rancher
+---
+
+#TODO: Show rancher UI
+
+---
 
 # Now do the split
 
@@ -216,7 +294,8 @@ You really cant do microservices without a CI
 # Move to independent deploys
 
 ???
-At first this was technically challenging because we kept forgetting about backwards compatibility
+At first this was technically challenging because we 
+kept forgetting about backwards compatibility
 "Stabbed in the Backwards Compatibility"
 
 Whats really interesting is we found that once the 
@@ -227,16 +306,100 @@ tech for this existed, we were still releasing everything
 
 ---
 
+# Issues with Java Services
+
+---
+
 #Training was inevetible
 
+???
+* need to be aligned on how "big" is a services
+* When do we break things up?
+  * do we start 
 ---
 
 # Docker-compose to the rescue
 
+???
+this was great until more and more services where being added
+Pulls took forever
+---
+
+# Need more environments
+
+---
+# More environments == pipelines
+---
+# TODO: show a pipeline example
+---
+
+# Environment Frenzy
+
+???
+* Everyone wanted an environment for everything
+* I kept saying "use docker compose, use local" but no one wanted too
+* Docker compose was too painful
+---
+
+# TODO: example of docker compose
+---
+
+# Shadow Prod
+
+???
+it never happened but its an idea we are still striving for
+
+---
+
+# Front-end Microservices
+
+???
+Our front-end is completely static
+
+---
+
+# Sofe
+
+---
+
+# Sofe overrides
+
+## TODO: maybe show a sofe override demo here
+
+---
+
+# Single-Spa
+
+##TODO: show example slide
+---
+
+# Feature Toggles
+
+---
+
+# Back to the backend
+
+???
+Still in a monolith deploy state
+
+Hardest thing is prioritizing
+
+Need features for money, but not doing this is slowing down features
+---
+
+# Service Discovery
+
+---
+
+# Message Bus
+
+---
+
+# Adding languages
+
 ---
 
 
----
 
 # Thanks
 
