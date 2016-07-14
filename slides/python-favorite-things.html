@@ -699,6 +699,19 @@ for p in people:
 ```python
 names = [p['name'] for p in people if p['age'] > 18]
 ```
+--
+```python
+names_gen = (p['name'] for p in people if p['age'] > 18)
+```
+--
+```python
+names_set = {p['name'] for p in people if p['age'] > 18}
+```
+--
+```python
+names_dict = {p['name']: p['age'] for p in people if p['age'] > 18}}
+```
+
 
 ---
 template: section
