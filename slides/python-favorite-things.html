@@ -588,8 +588,10 @@ def get_coordinates(shape):
 mylist = [*list1, 'b', *list2]
 ```
 --
+- - -
 ```python
 myset = {*list1, 'b', *list2}
+```
 --
 - - -
 ```python
@@ -747,8 +749,11 @@ might need to explain what a generator is
 
 ```python
 def get_adults():
-    new_list()
-    for p in person
+    new_list = []
+    for p in person:
+        if p['age'] > 18:
+            new_list.append(p['name'])
+     return new_list
 ```
 
 ```python
