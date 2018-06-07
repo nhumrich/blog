@@ -9,6 +9,9 @@ OpenWest 2016
 * [My Favorite Python Things](/slides/python-favorite-things.html)
 * [Introduction to rkt](/slides/rkt.html)
 * [Moving to Microservices with Docker](/slides/microservices.html)
+
+OpenWest 2018
+
 * [Building Your Continous Delivery Pipeline from the Ground Up](/slides/building-cd-pipeline.html)
 
 ----
