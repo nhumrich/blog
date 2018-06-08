@@ -168,7 +168,11 @@ class: normal
 * bugs are less scary
 
 ---
-# If its painful, do it more often
+template: center
+# "If it's painful, do it more often."
+
+???
+- we DONT deploy often, because its painful/scary
 
 ---
 background-image: url(images/pipeline.png)
@@ -183,6 +187,10 @@ A pipeline is a process put in place to commits to ensure quality is high whilst
 A pipeline is a lock step process, which improves over time. 
 
 Like a data pipeline, but for code
+
+As we get further away in the pipeline, the time of feedback decreases.
+
+We want to put the simplist "catches" as close to the dev as possible, quick feedback cycles
 
 ---
 .left-column[
@@ -260,12 +268,28 @@ Like a data pipeline, but for code
 # Environments
 
 
-## - why are environments important?
-## - how many should you have?
-## - Purpose for each environment
-## - What criteria decides when you should go to the next environment?
+## - Environmnents allow code to get "Closer to production" over time
+## - Typically about 3 environments
+## - There should be a purpose for each environment
+## - Clear criteria for each environment
 
-
+---
+background-image: url(images/pipeline.png)
+---
+.left-column[
+  ## Tools that support Pipelines
+]
+.right-column[
+  ## - Gitlab
+  ## - Jenkins
+  ## - Wercker
+  ## - GoCD
+  ## - Buddy
+  ## - Shippable
+  ## - BitBucket
+]
+---
+background-image: url(images/tm-pipe.png)
 ---
 template: center
 # Examples
@@ -329,34 +353,43 @@ You might want to make this its own script
 ---
 # Other peices to add
 
-## testing on environments automatically
+## - Testing on environments automatically
 
-## canaries
+## - Canaries
 
-## Performance testing
+## - Performance testing
+---
+layout: true
+template: center
+---
+# Tips/Extras
 
 ---
 
- 
-* extra points 
-- Automated tests per environment (or staged tests) (3 min) 
-- run tests against the environment to validate its up and working. 
-- add rollbacks 
-* getting rid of manual steps (5 min) 
-- CD at its finest 
-- explain why manual steps lead to delayed/larger deploys. 
-- getting rid of manual can feel scary, but leads to better code reviews and quality over time probably dont need, but if there is time left: 
-* master-based-development 
-- why MBD (or trunk-based) is required for CD 
+# Rollbacks
+???
+Part of failing fast, is being able to roll back
+---
+# No manual steps
+???
+- manual steps lead to delayed/larger deploys. 
+- Pipelines can take longer, if they are fully automated
+- Leads to higher quality over time
+- getting rid of manual can feel scary, but leads to better code reviews and quality over time
+---
+# Master (Trunk) Based Development
+???
+- why MBD (or trunk-based) is required for CD
 - How this effects environments 
-- why feature branches 
-* feature-toggles 
+- why not feature branches
+---
+# Feature Toggles 
+???
 - separating releases from deploys 
 - allows deployment schedule to be decoupled from business release schedule 
 - smaller commits 
 - usually required wen doing MBD 
-
-
+- See devons talk (The Foundation of Rapid Release Cycles) 300A, 3:00
 ---
 template: section
 # Thanks
