@@ -16,7 +16,7 @@ OpenWest 2018
 
 DjangoCon 2018
 
-* [Strategies for Zero Downtime Deployments](/sides/zero-downtime-deployments.html)
+* [Strategies for Zero Downtime Deployments](/slides/zero-downtime-deployments.html)
 
 ----
 all slides written using [remarkjs](https://github.com/gnab/remark)
