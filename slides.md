@@ -14,5 +14,9 @@ OpenWest 2018
 
 * [Building Your Continous Delivery Pipeline from the Ground Up](/slides/building-cd-pipeline.html)
 
+DjangoCon 2018
+
+* [Strategies for Zero Downtime Deployments](/sides/zero-downtime-deployments.html)
+
 ----
 all slides written using [remarkjs](https://github.com/gnab/remark)
