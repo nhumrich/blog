@@ -18,5 +18,9 @@ DjangoCon 2018
 
 * [Strategies for Zero Downtime Deployments](/slides/zero-downtime-deployments.html)
 
+Big Mountain Data 2019
+
+* [Strategies for Zero Downtime Deployments](/slides/zero-downtime-deployments-utahgeek.html)
+
 ----
 all slides written using [remarkjs](https://github.com/gnab/remark)
